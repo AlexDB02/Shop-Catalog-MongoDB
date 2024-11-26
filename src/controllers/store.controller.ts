@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import StoreModel from "../models/store.model";  // Mongoose Store model
+import StoreModel from "../models/store.model";
 import { AuthenticatedRequest } from "../middleware/auth.middleware"; 
 
 export const getStores = async (req: Request, res: Response) => {
@@ -102,7 +102,6 @@ export const deleteStore = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-// Validation function for request body
 const validateBody = (req: Request, res: Response) => {
     const { name, description, category_id, main_address, main_phone } = req.body;
     if (!name || !description || !category_id || !main_address || !main_phone) {

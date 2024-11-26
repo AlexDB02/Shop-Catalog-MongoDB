@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
-import UserModel from "../models/user.model";  // Mongoose User model
-import { generateToken } from "../utils/jwt";  // Your JWT token generation utility
-import bcrypt from "bcryptjs";  // For securely hashing passwords
+import UserModel from "../models/user.model";
+import { generateToken } from "../utils/jwt";  
+import bcrypt from "bcryptjs";  
 import { AuthenticatedRequest } from "../middleware/auth.middleware";
 
-// Login - authenticate user and generate a token
 export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
@@ -25,7 +24,6 @@ export const login = async (req: Request, res: Response) => {
     }
 };
 
-// Get all users - only accessible by admin
 export const getUsers = async (req: AuthenticatedRequest, res: Response) => {
     const role = req.body.user?.role;
 
@@ -41,7 +39,6 @@ export const getUsers = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-// Create a new user
 export const createUser = async (req: Request, res: Response) => {
     const { name, email, password, role, image } = req.body;
 
@@ -55,12 +52,12 @@ export const createUser = async (req: Request, res: Response) => {
             return res.status(400).json({ message: "El email ya está en uso" });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10); // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
 
         const newUser = new UserModel({
             name,
             email,
-            password: hashedPassword,  // Store the hashed password
+            password: hashedPassword,
             role: role || "user",
             image,
         });
@@ -79,7 +76,6 @@ export const createUser = async (req: Request, res: Response) => {
     }
 };
 
-// Get a single user - only accessible by admin
 export const getUser = async (req: AuthenticatedRequest, res: Response) => {
     const role = req.body.user?.role;
 
@@ -105,7 +101,6 @@ export const getUser = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-// Get current logged-in user's data
 export const getMyUser = async (req: AuthenticatedRequest, res: Response) => {
     const userID = req.user?.id;
 
@@ -131,7 +126,6 @@ export const getMyUser = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-// Update current logged-in user's data
 export const updateMyUser = async (req: AuthenticatedRequest, res: Response) => {
     const userID = req.user?.id;
 
@@ -151,7 +145,6 @@ export const updateMyUser = async (req: AuthenticatedRequest, res: Response) => 
             return res.status(404).json({ message: "Usuario no encontrado" });
         }
 
-        // Hash the new password if provided
         const hashedPassword = password ? await bcrypt.hash(password, 10) : user.password;
 
         user.set({ name, email, password: hashedPassword, role, image });
@@ -159,11 +152,10 @@ export const updateMyUser = async (req: AuthenticatedRequest, res: Response) => 
 
         return res.status(200).json(user);
     } catch (err) {
-        return res.status(500).json({ message: "Error updating user", error: err });
+        return res.status(500).json({ message: "Error al actualizar al usuario", error: err });
     }
 };
 
-// Delete current logged-in user
 export const deleteMyUser = async (req: AuthenticatedRequest, res: Response) => {
     const userID = req.user?.id;
 
@@ -179,6 +171,6 @@ export const deleteMyUser = async (req: AuthenticatedRequest, res: Response) => 
 
         return res.status(204).send();
     } catch (err) {
-        return res.status(500).json({ message: "Error deleting user", error: err });
+        return res.status(500).json({ message: "Error al eliminar al usuario", error: err });
     }
 };

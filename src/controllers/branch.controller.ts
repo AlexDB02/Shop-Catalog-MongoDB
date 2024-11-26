@@ -116,7 +116,6 @@ export const deleteBranch = async (req: AuthenticatedRequest, res: Response) => 
             return res.status(404).json({ message: "Branch not found" });
         }
 
-        // Use deleteOne instead of remove
         await Branch.deleteOne({ _id: req.params.id });
         res.status(204).send();
     } catch (error) {
@@ -124,7 +123,6 @@ export const deleteBranch = async (req: AuthenticatedRequest, res: Response) => 
         res.status(500).json({ message: "Error deleting branch", error: errorMessage});
     }
 };
-
 
 function validateBody(req: Request, res: Response) {
     const { name, address, store_id, latitude, longitude, services, schedule } = req.body;

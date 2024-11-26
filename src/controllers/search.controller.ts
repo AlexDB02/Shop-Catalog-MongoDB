@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import StoreModel from "../models/store.model";   // Mongoose Store model
-import BranchModel from "../models/branch.model"; // Mongoose Branch model
-import ProductModel from "../models/product.model"; // Mongoose Product model
+import StoreModel from "../models/store.model";
+import BranchModel from "../models/branch.model";
+import ProductModel from "../models/product.model"; 
 
 enum SearchType {
     STORE = "stores",
@@ -9,7 +9,6 @@ enum SearchType {
     PRODUCT = "products"
 }
 
-// Search for stores, branches, or products based on query
 export const searchAll = async (req: Request, res: Response) => {
     const { type, query } = req.query as { type: SearchType, query: string };
 
@@ -39,7 +38,6 @@ export const searchAll = async (req: Request, res: Response) => {
     }
 };
 
-// Get details of a specific item (store, branch, or product) by ID
 export const itemDetails = async (req: Request, res: Response) => {
     const { id } = req.params;
     const { type } = req.query as { type: SearchType };
@@ -74,14 +72,12 @@ export const itemDetails = async (req: Request, res: Response) => {
     }
 };
 
-// Helper function to search items based on query
 const searchItems = async (query: string, model: any) => {
     return model.find({
-        name: { $regex: query, $options: "i" } // Case-insensitive search
+        name: { $regex: query, $options: "i" }
     });
 };
 
-// Helper function to find an item by ID
 const searchItem = async (id: string, model: any) => {
     return model.findById(id);
 };
