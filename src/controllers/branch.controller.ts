@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import Branch from "../models/branch.model"; // Assuming you have a Mongoose model for Branch
-import Store from "../models/store.model"; // Assuming you have a Mongoose model for Store
+import Branch from "../models/branch.model";
+import Store from "../models/store.model";
 import { AuthenticatedRequest } from "../middleware/auth.middleware";
 
 export const getBranches = async (req: Request, res: Response) => {
