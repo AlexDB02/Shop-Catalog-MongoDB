@@ -3,6 +3,7 @@ import UserModel from "../models/user.model";
 import { generateToken } from "../utils/jwt";  
 import bcrypt from "bcryptjs";  
 import { AuthenticatedRequest } from "../middleware/auth.middleware";
+import { EmailService } from "../domain/services/email.service";
 
 export const login = async (req: Request, res: Response) => {
     const { email, password } = req.body;
@@ -64,6 +65,13 @@ export const createUser = async (req: Request, res: Response) => {
 
         await newUser.save();
 
+        const emailService = new EmailService();
+        await emailService.sendEmail({
+            to:"bitfox666@gmail.com",
+            subject:"nuevo usuario",
+            htmlBody:"<h1>test</h1>"
+        });
+
         return res.status(201).json({
             id: newUser.id,
             name: newUser.name,
@@ -71,6 +79,7 @@ export const createUser = async (req: Request, res: Response) => {
             role: newUser.role,
             image: newUser.image,
         });
+
     } catch (err) {
         return res.status(500).json({ message: "Error creating user", error: err });
     }
