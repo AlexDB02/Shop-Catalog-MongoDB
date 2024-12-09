@@ -19,6 +19,7 @@ export class EmailService {
     async sendEmail(options:MailOptions){
         try{
             const sentInformation = await this.transporter.sendMail({
+                from: '"Barbi Fashionistas" <fogem53550@rustetic.com>',
                 to: options.to,
                 subject: options.subject,
                 html: options.htmlBody

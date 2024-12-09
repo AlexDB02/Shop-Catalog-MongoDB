@@ -48,6 +48,7 @@ export const createUser = async (req: Request, res: Response) => {
     }
 
     try {
+
         const emailExists = await UserModel.findOne({ email });
         if (emailExists) {
             return res.status(400).json({ message: "El email ya está en uso" });
@@ -67,11 +68,75 @@ export const createUser = async (req: Request, res: Response) => {
 
         const emailService = new EmailService();
         await emailService.sendEmail({
-            to:"bitfox666@gmail.com",
-            subject:"nuevo usuario",
-            htmlBody:"<h1>test</h1>"
+            to: newUser.email,
+            subject: `¡Gracias por unirte a Barbi Fashionistas!`,
+            htmlBody: `
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>¡Gracias por unirte!</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        color: #333;
+                        background-color: #f4f4f4;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .email-container {
+                        width: 100%;
+                        max-width: 600px;
+                        margin: 0 auto;
+                        background-color: #ffffff;
+                        padding: 20px;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    }
+                    h1 {
+                        color: #4CAF50;
+                        font-size: 24px;
+                        margin-bottom: 10px;
+                    }
+                    p {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        margin: 10px 0;
+                    }
+                    .btn {
+                        display: inline-block;
+                        background-color: #4CAF50;
+                        color: #fff;
+                        padding: 10px 20px;
+                        text-decoration: none;
+                        border-radius: 5px;
+                        font-weight: bold;
+                        margin-top: 20px;
+                    }
+                    .footer {
+                        font-size: 12px;
+                        color: #999;
+                        text-align: center;
+                        margin-top: 30px;
+                    }
+                </style>
+            </head>
+            <body>
+
+                <div class="email-container">
+                    <h1>¡Gracias por unirte a Barbi Fashionistas!</h1>
+                    <p>Hola ${newUser.name},</p>
+                    <p>¡Bienvenido/a a nuestra comunidad! Nos alegra tenerte con nosotros. Ahora puedes empezar a disfrutar de todas las funcionalidades que Barbi Fashionistas tiene para ofrecerte.</p>
+                    <p>Si tienes alguna pregunta o necesitas ayuda para empezar, no dudes en ponerte en contacto con nuestro equipo de soporte.</p>
+                    <p class="footer">Este es un correo automatizado. Por favor no respondas a este mensaje. Si necesitas ayuda, contacta con nuestro equipo de soporte.</p>
+                </div>
+
+            </body>
+            </html>
+            `
         });
 
+        // Responder con los datos del usuario creado
         return res.status(201).json({
             id: newUser.id,
             name: newUser.name,
@@ -81,9 +146,11 @@ export const createUser = async (req: Request, res: Response) => {
         });
 
     } catch (err) {
+        // Manejar errores
         return res.status(500).json({ message: "Error creating user", error: err });
     }
 };
+
 
 export const getUser = async (req: AuthenticatedRequest, res: Response) => {
     const role = req.body.user?.role;
