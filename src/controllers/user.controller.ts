@@ -135,8 +135,6 @@ export const createUser = async (req: Request, res: Response) => {
             </html>
             `
         });
-
-        // Responder con los datos del usuario creado
         return res.status(201).json({
             id: newUser.id,
             name: newUser.name,
@@ -146,7 +144,6 @@ export const createUser = async (req: Request, res: Response) => {
         });
 
     } catch (err) {
-        // Manejar errores
         return res.status(500).json({ message: "Error creating user", error: err });
     }
 };
