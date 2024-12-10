@@ -40,7 +40,7 @@ export const createBranch = async (req: AuthenticatedRequest, res: Response) => 
     const body = validateBody(req, res);
     if (!body) return;
 
-    const { name, address, store_id, latitude, longitude, services, schedule } = body;
+    const { name, category_id, address, store_id, latitude, longitude, services, schedule } = body;
 
     try {
         // Check if the store exists
@@ -51,6 +51,7 @@ export const createBranch = async (req: AuthenticatedRequest, res: Response) => 
 
         const newBranch = new Branch({
             name,
+            category_id,
             address,
             store_id,
             latitude,
@@ -78,10 +79,11 @@ export const updateBranch = async (req: AuthenticatedRequest, res: Response) => 
         const body = validateBody(req, res);
         if (!body) return;
 
-        const { name, address, store_id, latitude, longitude, services, schedule } = body;
+        const { name, category_id, address, store_id, latitude, longitude, services, schedule } = body;
 
         // Update the branch document
         branch.name = name;
+        branch.category_id = category_id;
         branch.address = address;
         branch.store_id = store_id;
         branch.latitude = latitude;
@@ -115,12 +117,12 @@ export const deleteBranch = async (req: AuthenticatedRequest, res: Response) => 
 };
 
 function validateBody(req: Request, res: Response) {
-    const { name, address, store_id, latitude, longitude, services, schedule } = req.body;
+    const { name, category_id, address, store_id, latitude, longitude, services, schedule } = req.body;
 
-    if (!name || !address || !store_id || !latitude || !longitude) {
+    if (!name || !category_id || !address || !store_id || !latitude || !longitude) {
         res.status(400).json({ message: "Missing required fields" });
         return null;
     }
 
-    return { name, address, store_id, latitude, longitude, services, schedule };
+    return { name, address, category_id, store_id, latitude, longitude, services, schedule };
 }
