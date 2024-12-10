@@ -35,10 +35,7 @@ export const getBranch = async (req: Request, res: Response) => {
 };
 
 export const createBranch = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "You do not have permission to perform this action" });
-    }
+
     
     const body = validateBody(req, res);
     if (!body) return;
@@ -71,11 +68,7 @@ export const createBranch = async (req: AuthenticatedRequest, res: Response) => 
 };
 
 export const updateBranch = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "You do not have permission to perform this action" });
-    }
-
+    
     try {
         const branch = await Branch.findById(req.params.id);
         if (!branch) {
@@ -105,10 +98,7 @@ export const updateBranch = async (req: AuthenticatedRequest, res: Response) => 
 };
 
 export const deleteBranch = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "You do not have permission to perform this action" });
-    }
+
 
     try {
         const branch = await Branch.findById(req.params.id);

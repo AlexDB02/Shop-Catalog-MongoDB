@@ -26,11 +26,7 @@ export const login = async (req: Request, res: Response) => {
 };
 
 export const getUsers = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
 
-    if (role !== "admin") {
-        return res.status(403).json({ message: "No tienes permisos para acceder a esta información" });
-    }
 
     try {
         const users = await UserModel.find();
@@ -150,11 +146,7 @@ export const createUser = async (req: Request, res: Response) => {
 
 
 export const getUser = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
 
-    if (role !== "admin") {
-        return res.status(403).json({ message: "No tienes permisos para acceder a esta información" });
-    }
 
     try {
         const user = await UserModel.findById(req.params.id);

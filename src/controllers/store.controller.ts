@@ -32,10 +32,7 @@ export const getStore = async (req: Request, res: Response) => {
 };
 
 export const createStore = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "No tienes permiso para realizar esta acción" });
-    }
+
     
     const body = validateBody(req, res);
     if (!body) return;
@@ -60,10 +57,7 @@ export const createStore = async (req: AuthenticatedRequest, res: Response) => {
 };
 
 export const updateStore = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "No tienes permiso para realizar esta acción" });
-    }
+
 
     const storeId = req.params.id;
     const body = validateBody(req, res);
@@ -85,10 +79,7 @@ export const updateStore = async (req: AuthenticatedRequest, res: Response) => {
 };
 
 export const deleteStore = async (req: AuthenticatedRequest, res: Response) => {
-    const role = req.body.user?.role;
-    if (role !== "admin") {
-        return res.status(403).json({ message: "No tienes permiso para realizar esta acción" });
-    }
+
 
     try {
         const store = await StoreModel.findByIdAndDelete(req.params.id);

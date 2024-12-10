@@ -25,10 +25,7 @@ export const getCategory = async (req: Request, res: Response) => {
 };
 
 export const createCategory = async (req: AuthenticatedRequest, res: Response) => {
-  const role = req.body.user?.role;
-  if (role !== "admin") {
-    return res.status(403).json({ message: "No tienes permiso para realizar esta acción" });
-  }
+
 
   const { name, description, image } = req.body;
   if (!name || !description) {
@@ -46,10 +43,7 @@ export const createCategory = async (req: AuthenticatedRequest, res: Response) =
 
 // Update an existing category
 export const updateCategory = async (req: AuthenticatedRequest, res: Response) => {
-  const role = req.body.user?.role;
-  if (role !== "admin") {
-    return res.status(403).json({ message: "No tienes permiso para realizar esta acció" });
-  }
+
 
   const { name, description, image } = req.body;
   if (!name || !description) {
