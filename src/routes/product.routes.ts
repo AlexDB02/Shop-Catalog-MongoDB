@@ -7,8 +7,8 @@ const productRouter = Router();
 
 productRouter.get("/", asyncHandler(productController.getProducts));
 productRouter.get("/:id", asyncHandler(productController.getProduct));
-productRouter.post("/", authMiddleware, asyncHandler(productController.createProduct));
-productRouter.put("/:id", authMiddleware, asyncHandler(productController.updateProduct));
-productRouter.delete("/:id", authMiddleware, asyncHandler(productController.deleteProduct));
+productRouter.post("/", asyncHandler(productController.createProduct));
+productRouter.put("/:id", asyncHandler(productController.updateProduct));
+productRouter.delete("/:id", asyncHandler(productController.deleteProduct));
 
 export default productRouter;

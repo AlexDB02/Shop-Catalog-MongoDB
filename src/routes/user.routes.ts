@@ -10,8 +10,8 @@ userRouter.post("/register", asyncHandler(userController.createUser));
 userRouter.get("/me", asyncHandler(userController.getMyUser));
 userRouter.put("/me", asyncHandler(userController.updateMyUser));
 userRouter.delete("/me", asyncHandler(userController.deleteMyUser));
-userRouter.get("/", authMiddleware, asyncHandler(userController.getUsers));
-userRouter.get("/:id", authMiddleware, asyncHandler(userController.getUser));
+userRouter.get("/", asyncHandler(userController.getUsers));
+userRouter.get("/:id", asyncHandler(userController.getUser));
 
 
 export default userRouter;

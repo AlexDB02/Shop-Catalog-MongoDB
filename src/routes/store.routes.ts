@@ -7,8 +7,8 @@ const storeRouter = Router();
 
 storeRouter.get("/", asyncHandler(storeController.getStores));
 storeRouter.get("/:id", asyncHandler(storeController.getStore));
-storeRouter.post("/", authMiddleware, asyncHandler(storeController.createStore));
-storeRouter.put("/:id", authMiddleware, asyncHandler(storeController.updateStore));
-storeRouter.delete("/:id", authMiddleware, asyncHandler(storeController.deleteStore));
+storeRouter.post("/", asyncHandler(storeController.createStore));
+storeRouter.put("/:id", asyncHandler(storeController.updateStore));
+storeRouter.delete("/:id", asyncHandler(storeController.deleteStore));
 
 export default storeRouter;
