@@ -7,8 +7,8 @@ const categoryRouter = Router();
 
 categoryRouter.get("/", asyncHandler(categoryController.getCategories));
 categoryRouter.get("/:id", asyncHandler(categoryController.getCategory));
-categoryRouter.post("/", authMiddleware, asyncHandler(categoryController.createCategory));
-categoryRouter.put("/:id", authMiddleware, asyncHandler(categoryController.updateCategory));
-categoryRouter.delete("/:id", authMiddleware, asyncHandler(categoryController.deleteCategory));
+categoryRouter.post("/", asyncHandler(categoryController.createCategory));
+categoryRouter.put("/:id", asyncHandler(categoryController.updateCategory));
+categoryRouter.delete("/:id", asyncHandler(categoryController.deleteCategory));
 
 export default categoryRouter;

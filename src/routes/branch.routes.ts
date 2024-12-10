@@ -7,8 +7,8 @@ const branchRouter = Router();
 
 branchRouter.get("/", asyncHandler(branchController.getBranches));
 branchRouter.get("/:id", asyncHandler(branchController.getBranch));
-branchRouter.post("/", authMiddleware, asyncHandler(branchController.createBranch));
-branchRouter.put("/:id", authMiddleware, asyncHandler(branchController.updateBranch));
-branchRouter.delete("/:id", authMiddleware, asyncHandler(branchController.deleteBranch));
+branchRouter.post("/", asyncHandler(branchController.createBranch));
+branchRouter.put("/:id", asyncHandler(branchController.updateBranch));
+branchRouter.delete("/:id", asyncHandler(branchController.deleteBranch));
 
 export default branchRouter;
