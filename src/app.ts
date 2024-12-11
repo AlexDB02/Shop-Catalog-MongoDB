@@ -25,6 +25,7 @@ mongoose
     });
   })
   .catch((err) => {
+    console.log(`Error connecting to MongoDB at ${MONGO_URI}`);
     console.error('MongoDB connection error:', err);
   });
 
