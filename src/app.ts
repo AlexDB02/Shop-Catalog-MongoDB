@@ -1,4 +1,4 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import routes from './routes';
@@ -11,14 +11,17 @@ app.use(express.json());
 // Routes
 app.use('/api', routes);
 
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/geolocation';
+const PORT = parseInt(String(process.env.PORT || 3000));
+
 
 // Mongoose connection
 mongoose
-  .connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/geolocation')
+  .connect(MONGO_URI)
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(3001, () => {
-      console.log('Server running on http://localhost:3000');
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
     });
   })
   .catch((err) => {

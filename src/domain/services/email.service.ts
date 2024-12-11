@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer'; 
+import nodemailer from 'nodemailer';
 
 interface MailOptions{
     to: string
@@ -7,12 +7,11 @@ interface MailOptions{
 }
 
 export class EmailService {
-
     private transporter = nodemailer.createTransport({
-        service: "gmail",
+        service: process.env.EMAIL_SERVICE,
         auth:{
-            user: "bitfox666@gmail.com",
-            pass: "dlhwynsroahkyweb"
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
         }
     });
 
