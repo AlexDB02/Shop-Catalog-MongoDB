@@ -1,126 +1,124 @@
 ![enter image description here](https://web.gcompostela.org/wp-content/uploads/2022/10/Universidad-La-DeLa-Salle-Bajio-logo.png)
-# Tiendas de ropa
-## Proyecto final de sistemas geo-referenciados.
+# Clothing Stores
+## Final Project for Geo-Referenced Systems.
 
-### Integrantes:
+### Team Members:
 * Becerra Díaz Alejandro.
 * González Hernández Juan Pablo.
 * Núñez Guerrero Melanie Guadalupe.
 * Peña Bravo María Cecilia.
 * Trujillo Ramírez César Andrés.
-### Profesor Frausto Ramírez Juan de Dios.
-#### 11/12/2024.
-##### Ingeniería de Software y Sistemas Computacionales - 712.
-
-Aquí está el índice basado en el contenido del `README.md`:
+### Professor Frausto Ramírez Juan de Dios.
+#### 12/11/2024.
+##### Software Engineering and Computer Systems - 712.
 
 ---
 
-## **Índice**
+## **Index**
 
-1. [Introducción](#Tiendas-de-ropa)  
-2. [Descripción de la Aplicación](#descripción-de-la-aplicación)  
-3. [Tecnologías Usadas y Prerrequisitos](#tecnologías-usadas-y-prerrequisitos)  
-4. [Configuración de Variables de Entorno](#configuración-de-variables-de-entorno)  
-5. [Ejecutar el Proyecto con Docker](#ejecutar-el-proyecto-con-docker)  
-6. [Estructura del Proyecto](#estructura-del-proyecto)  
-7. [Roles en la Aplicación](#roles-en-la-aplicación)  
-   - [Usuarios Clientes](#usuarios-clientes)  
-   - [Administradores](#administradores)  
-8. [Tabla Comparativa de Roles](#tabla-comparativa-de-roles)  
-9. [Modelo de Datos](#modelo-de-datos)  
-   - [Entidad Usuario](#entidad-usuario)  
-   - [Entidad Categoría](#entidad-categoría)  
-   - [Entidad Tienda](#entidad-tienda)  
-   - [Entidad Sucursal](#entidad-sucursal)  
-   - [Entidad Producto](#entidad-producto)  
-10. [Relaciones](#relaciones)  
-11. [Endpoints Generales para Postman](#endpoints-generales-para-postman)  
-   - [Categorías](#categorías)  
-   - [Tiendas](#tiendas)  
-   - [Sucursales](#sucursales)  
-   - [Productos](#productos)  
-   - [Usuarios](#usuarios)  
-12. [Endpoints de Búsqueda con Filtros](#endpoints-de-búsqueda-con-filtros)  
-13. [Conexión entre los Filtros y Detalles](#conexión-entre-los-filtros-y-detalles)  
-14. [Pantallas de Flutter por Entidad](#pantallas-de-flutter-por-entidad)  
-   - [Categorías](#categorías-1)  
-   - [Tiendas](#tiendas-1)  
-   - [Sucursales](#sucursales-1)  
-   - [Productos](#productos-1)  
-   - [Usuarios](#usuarios-1)  
-15. [Flujo de Interacción con Pantallas](#flujo-de-interacción-con-pantallas)  
-16. [Desambiguación de Requisitos Funcionales](#desambiguación-de-requisitos-funcionales)  
-17. [Resumen](#resumen)
-
----
-
-### **Descripción de la Aplicación**
-
-La aplicación es un catálogo móvil que permite a los usuarios explorar tiendas de ropa organizadas por categorías de estilo. Proporciona funcionalidades para localizar sucursales en un mapa, explorar catálogos de productos, y gestionar perfiles de usuario. Los administradores tienen acceso completo a herramientas para gestionar categorías, tiendas, sucursales y productos.
+1. [Introduction](#clothing-stores)  
+2. [Application Description](#application-description)  
+3. [Technologies Used and Prerequisites](#technologies-used-and-prerequisites)  
+4. [Environment Variable Configuration](#environment-variable-configuration)  
+5. [Running the Project with Docker](#running-the-project-with-docker)  
+6. [Project Structure](#project-structure)  
+7. [Roles in the Application](#roles-in-the-application)  
+   - [Client Users](#client-users)  
+   - [Administrators](#administrators)  
+8. [Role Comparison Table](#role-comparison-table)  
+9. [Data Model](#data-model)  
+   - [User Entity](#user-entity)  
+   - [Category Entity](#category-entity)  
+   - [Store Entity](#store-entity)  
+   - [Branch Entity](#branch-entity)  
+   - [Product Entity](#product-entity)  
+10. [Relationships](#relationships)  
+11. [General Endpoints for Postman](#general-endpoints-for-postman)  
+   - [Categories](#categories)  
+   - [Stores](#stores)  
+   - [Branches](#branches)  
+   - [Products](#products)  
+   - [Users](#users)  
+12. [Search Endpoints with Filters](#search-endpoints-with-filters)  
+13. [Filters and Details Connection](#filters-and-details-connection)  
+14. [Flutter Screens per Entity](#flutter-screens-per-entity)  
+   - [Categories](#categories-1)  
+   - [Stores](#stores-1)  
+   - [Branches](#branches-1)  
+   - [Products](#products-1)  
+   - [Users](#users-1)  
+15. [Screen Interaction Flow](#screen-interaction-flow)  
+16. [Functional Requirements Clarification](#functional-requirements-clarification)  
+17. [Summary](#summary)
 
 ---
 
-### **Tecnologías Usadas y Prerrequisitos**
+## **Application Description**
 
-El proyecto utiliza las siguientes tecnologías:
-- **Node.js**: Para construir la API RESTful.
-- **MongoDB**: Base de datos NoSQL utilizada para almacenar categorías, tiendas, sucursales, productos y usuarios.
-- **Docker**: Contenerización de la aplicación para facilitar la implementación.
-- **Postman**: Herramienta para probar los endpoints de la API.
-- **Express.js**: Framework para gestionar las rutas y lógica del backend.
+The application is a mobile catalog that allows users to explore clothing stores organized by style categories. It provides functionalities to locate branches on a map, browse product catalogs, and manage user profiles. Administrators have full access to tools for managing categories, stores, branches, and products.
 
 ---
 
-### **Configuración de Variables de Entorno**
+## **Technologies Used and Prerequisites**
 
-Las siguientes variables de entorno son necesarias para ejecutar la aplicación:
+The project uses the following technologies:
+- **Node.js**: For building the RESTful API.
+- **MongoDB**: NoSQL database used to store categories, stores, branches, products, and users.
+- **Docker**: For containerizing the application to simplify deployment.
+- **Postman**: Tool for testing API endpoints.
+- **Express.js**: Framework for managing routes and backend logic.
 
-| **Variable**               | **Descripción**                                             |
+---
+
+## **Environment Variable Configuration**
+
+The following environment variables are required to run the application:
+
+| **Variable**               | **Description**                                             |
 |----------------------------|-----------------------------------------------------------|
-| `PORT`                     | Puerto en el que se ejecutará la API (por defecto `3000`). |
-| `MONGODB_URI`              | URL de conexión a la base de datos MongoDB.                |
-| `EMAIL_SERVICE`            | Proveedor de servicio de email (por ejemplo, `gmail`).     |
-| `EMAIL_USER`               | Usuario del servicio de email.                             |
-| `EMAIL_PASS`               | Contraseña del servicio de email.                          |
-| `MONGO_INITDB_ROOT_USERNAME` | Usuario root de la base de datos MongoDB.                |
-| `MONGO_INITDB_ROOT_PASSWORD` | Contraseña root de la base de datos MongoDB.             |
+| `PORT`                     | Port on which the API will run (default `3000`).           |
+| `MONGODB_URI`              | MongoDB connection URL.                                    |
+| `EMAIL_SERVICE`            | Email service provider (e.g., `gmail`).                   |
+| `EMAIL_USER`               | Email service user.                                        |
+| `EMAIL_PASS`               | Email service password.                                    |
+| `MONGO_INITDB_ROOT_USERNAME` | MongoDB root username.                                   |
+| `MONGO_INITDB_ROOT_PASSWORD` | MongoDB root password.                                   |
 
 ---
 
-### **Ejecutar el Proyecto con Docker**
+## **Running the Project with Docker**
 
-1. **Requisitos previos:**
-   - Asegúrate de tener Docker instalado en tu sistema.
+1. **Prerequisites:**
+   - Ensure Docker is installed on your system.
 
-2. **Construir la imagen:**
+2. **Build the image:**
    ```bash
    docker build -t shop-catalog-api .
    ```
 
-3. **Ejecutar el contenedor:**
+3. **Run the container:**
    ```bash
    docker run -d -p 3000:3000 --name shop-catalog-api --env-file .env shop-catalog-api
    ```
 
-4. **Variables de entorno en Docker:**
-   - Asegúrate de definir todas las variables necesarias en un archivo `.env` en el mismo directorio que `docker-compose.yml`.
+4. **Environment variables in Docker:**
+   - Ensure all necessary variables are defined in a `.env` file in the same directory as `docker-compose.yml`.
 
-5. **Comandos adicionales:**
-   - **Detener el contenedor:**
+5. **Additional commands:**
+   - **Stop the container:**
      ```bash
      docker stop shop-catalog-api
      ```
-   - **Eliminar el contenedor:**
+   - **Remove the container:**
      ```bash
      docker rm shop-catalog-api
      ```
 
 ---
 
-### **Estructura del Proyecto**
+## **Project Structure**
 
-El proyecto está organizado de la siguiente manera:
+The project is organized as follows:
 ```
 /controllers
 /models
@@ -131,342 +129,349 @@ docker-compose.yml
 package.json
 ```
 
-### **Roles en la Aplicación**
+---
 
-1. **Usuarios Clientes:**
-   - **Permisos:**
-     - Consultar categorías, tiendas, sucursales y productos.
-     - CRUD completo sobre su propio perfil:
-       - Crear, consultar, actualizar y eliminar su cuenta.
-   - **Registro:** 
-     - Los usuarios se registran directamente desde la aplicación móvil.
-   - **Restricciones:**
-     - No pueden realizar cambios en las categorías, tiendas, sucursales o productos.
-     - No tienen acceso a funcionalidades administrativas ni a la gestión de otros usuarios.
+## **Roles in the Application**
 
-2. **Administradores:**
-   - **Permisos:**
-     - CRUD completo de todas las entidades:
-       - Categorías, tiendas, sucursales y productos.
-       - Usuarios: Listar, consultar y eliminar usuarios si es necesario.
-   - **Registro:** 
-     - Administradores registrados desde el código o por el equipo de desarrollo.
-   - **Restricciones:**
-     - No pueden registrarse ni editar su propio rol como administrador.
-     - Solo pueden operar dentro del alcance del sistema (sin acceso a datos protegidos externos).
+### **Client Users**
+- **Permissions:**
+  - View categories, stores, branches, and products.
+  - Full CRUD over their profile:
+    - Create, view, update, and delete their account.
+- **Registration:**
+  - Users register directly from the mobile application.
+- **Restrictions:**
+  - Cannot modify categories, stores, branches, or products.
+  - No access to administrative functionalities or other users' data.
 
 ---
 
-### **Tabla Comparativa de Roles**
-
-| **Funcionalidad**            | **Usuario Cliente** | **Administrador** |
-|------------------------------|---------------------|-------------------|
-| Consultar categorías         | ✔️                  | ✔️               |
-| Consultar tiendas            | ✔️                  | ✔️               |
-| Consultar sucursales         | ✔️                  | ✔️               |
-| Consultar productos          | ✔️                  | ✔️               |
-| CRUD sobre perfil propio     | ✔️                  | ✔️               |
-| CRUD sobre categorías        | ❌                  | ✔️               |
-| CRUD sobre tiendas           | ❌                  | ✔️               |
-| CRUD sobre sucursales        | ❌                  | ✔️               |
-| CRUD sobre productos         | ❌                  | ✔️               |
-| Gestión de usuarios          | ❌                  | ✔️ (listar, consultar, eliminar) |
+### **Administrators**
+- **Permissions:**
+  - Full CRUD over all entities:
+    - Categories, stores, branches, and products.
+    - Users: List, view, and delete users as necessary.
+- **Registration:**
+  - Administrators are registered via code or by the development team.
+- **Restrictions:**
+  - Cannot register or edit their own role as administrators.
+  - Limited to operating within the system's scope (no access to external protected data).
 
 ---
 
-### **Modelo de Datos**
+## **Role Comparison Table**
 
-#### **Entidad Usuario**
-- `id`: UUID (Llave primaria).  
+| **Functionality**           | **Client User** | **Administrator** |
+|-----------------------------|-----------------|-------------------|
+| View categories             | ✔️              | ✔️               |
+| View stores                 | ✔️              | ✔️               |
+| View branches               | ✔️              | ✔️               |
+| View products               | ✔️              | ✔️               |
+| CRUD on own profile         | ✔️              | ✔️               |
+| CRUD on categories          | ❌              | ✔️               |
+| CRUD on stores              | ❌              | ✔️               |
+| CRUD on branches            | ❌              | ✔️               |
+| CRUD on products            | ❌              | ✔️               |
+| User management             | ❌              | ✔️ (list, view, delete) |
+
+---
+
+## **Data Model**
+
+### **User Entity**
+- `id`: UUID (Primary Key).  
 - `email`: String.  
 - `password`: String.  
 - `name`: String.  
-- `role`: Enum (`cliente`, `administrador`).  
-- `image`: String (URL de imagen de perfil).  
+- `role`: Enum (`client`, `admin`).  
+- `image`: String (Profile image URL).  
 
-#### **Entidad Categoría**
-- `id`: UUID (Llave primaria).  
+### **Category Entity**
+- `id`: UUID (Primary Key).  
 - `name`: String.  
 - `description`: String.  
-- `image`: String (URL de imagen representativa).  
+- `image`: String (Representative image URL).  
 
-#### **Entidad Tienda**
-- `id`: UUID (Llave primaria).  
+### **Store Entity**
+- `id`: UUID (Primary Key).  
 - `name`: String.  
 - `description`: String.  
-- `category_id`: UUID (Llave foránea a `Categoría`).  
+- `category_id`: UUID (Foreign key to `Category`).  
 - `main_address`: String.  
 - `main_phone`: String.  
 - `website`: String.  
-- `image`: String (URL de imagen).  
+- `image`: String (URL of the image).  
 
-#### **Entidad Sucursal**
-- `id`: UUID (Llave primaria).  
-- `store_id`: UUID (Llave foránea a `Tienda`).  
+### **Branch Entity**
+- `id`: UUID (Primary Key).  
+- `store_id`: UUID (Foreign key to `Store`).  
 - `name`: String.  
 - `address`: String.  
 - `latitude`: Float.  
 - `longitude`: Float.  
 - `services`: Array[String].  
-- `horarios`: JSON (Objeto que especifica los horarios de apertura y cierre por día).
-- `image`: String (URL de imagen).  
+- `schedules`: JSON (Opening and closing hours by day).  
+- `image`: String (Image URL).  
 
-##### **Ejemplo de Atributo Horarios en JSON**
+#### **`schedules` example in JSON**
 ```json
 {
-  "horarios": {
-    "lunes": { "apertura": "09:00", "cierre": "18:00" },
-    "martes": { "apertura": "09:00", "cierre": "18:00" },
-    "miércoles": { "apertura": "09:00", "cierre": "18:00" },
-    "jueves": { "apertura": "09:00", "cierre": "18:00" },
-    "viernes": { "apertura": "09:00", "cierre": "18:00" },
-    "sábado": { "apertura": "10:00", "cierre": "14:00" },
-    "domingo": null
+  "schedules": {
+    "monday": { "open": "09:00", "close": "18:00" },
+    "tuesday": { "open": "09:00", "close": "18:00" },
+    "wednesday": { "open": "09:00", "close": "18:00" },
+    "thursday": { "open": "09:00", "close": "18:00" },
+    "friday": { "open": "09:00", "close": "18:00" },
+    "saturday": { "open": "10:00", "close": "14:00" },
+    "sunday": null
   }
 }
 ```
-#### **Entidad Producto**
-- `id`: UUID (Llave primaria).  
-- `store_id`: UUID (Llave foránea a `Tienda`).  
+---
+
+### **Product Entity**
+- `id`: UUID (Primary Key).  
+- `store_id`: UUID (Foreign key to `Store`).  
 - `name`: String.  
 - `description`: String.  
 - `price`: Float.  
-- `image`: String (URL de imagen).  
+- `image`: String (Image URL).  
 
 ---
 
-### **Relaciones**
-1. **Categoría - Tiendas:** Una categoría tiene varias tiendas (`category_id`).  
-2. **Tienda - Sucursales:** Una tienda tiene varias sucursales (`store_id`).  
-3. **Tienda - Productos:** Una tienda tiene varios productos (`store_id`).  
+## **Relationships**
+
+1. **Category - Stores:**  
+   - A category has multiple stores (`category_id`).  
+2. **Store - Branches:**  
+   - A store has multiple branches (`store_id`).  
+3. **Store - Products:**  
+   - A store has multiple products (`store_id`).  
 
 ---
 
-### **Endpoints Generales para Postman**
+## **General Endpoints for Postman**
 
-#### **Categorías**
-1. **Listar todas las categorías:**  
+### **Categories**
+1. **List all categories:**  
    - **GET** `/categories`  
-2. **Consultar una categoría específica:**  
+2. **View a specific category:**  
    - **GET** `/categories/:id`  
-3. **Crear nueva categoría:**  
-   - **POST** `/categories` (Solo administrador).  
-4. **Actualizar una categoría:**  
-   - **PUT** `/categories/:id` (Solo administrador).  
-5. **Eliminar una categoría:**  
-   - **DELETE** `/categories/:id` (Solo administrador).  
+3. **Create a new category:**  
+   - **POST** `/categories` (Admin only).  
+4. **Update a category:**  
+   - **PUT** `/categories/:id` (Admin only).  
+5. **Delete a category:**  
+   - **DELETE** `/categories/:id` (Admin only).  
 
-#### **Tiendas**
-1. **Listar todas las tiendas:**  
+---
+
+### **Stores**
+1. **List all stores:**  
    - **GET** `/stores`  
-2. **Listar tiendas por categoría:**  
+2. **List stores by category:**  
    - **GET** `/categories/:id/stores`  
-3. **Consultar detalles de una tienda específica:**  
+3. **View store details:**  
    - **GET** `/stores/:id`  
-4. **Crear una nueva tienda:**  
-   - **POST** `/stores` (Solo administrador).  
-5. **Actualizar una tienda:**  
-   - **PUT** `/stores/:id` (Solo administrador).  
-6. **Eliminar una tienda:**  
-   - **DELETE** `/stores/:id` (Solo administrador).  
+4. **Create a new store:**  
+   - **POST** `/stores` (Admin only).  
+5. **Update a store:**  
+   - **PUT** `/stores/:id` (Admin only).  
+6. **Delete a store:**  
+   - **DELETE** `/stores/:id` (Admin only).  
 
-#### **Sucursales**
-1. **Listar todas las sucursales:**  
+---
+
+### **Branches**
+1. **List all branches:**  
    - **GET** `/branches`  
-2. **Listar sucursales de una tienda específica:**  
+2. **List branches of a specific store:**  
    - **GET** `/stores/:id/branches`  
-3. **Consultar detalles de una sucursal específica:**  
+3. **View branch details:**  
    - **GET** `/branches/:id`  
-4. **Crear una nueva sucursal:**  
-   - **POST** `/branches` (Solo administrador).  
-5. **Actualizar una sucursal:**  
-   - **PUT** `/branches/:id` (Solo administrador).  
-6. **Eliminar una sucursal:**  
-   - **DELETE** `/branches/:id` (Solo administrador).  
+4. **Create a new branch:**  
+   - **POST** `/branches` (Admin only).  
+5. **Update a branch:**  
+   - **PUT** `/branches/:id` (Admin only).  
+6. **Delete a branch:**  
+   - **DELETE** `/branches/:id` (Admin only).  
 
-#### **Productos**
-1. **Listar todos los productos:**  
+---
+
+### **Products**
+1. **List all products:**  
    - **GET** `/products`  
-2. **Listar productos de una tienda específica:**  
+2. **List products by store:**  
    - **GET** `/stores/:id/products`  
-3. **Consultar detalles de un producto específico:**  
+3. **View product details:**  
    - **GET** `/products/:id`  
-4. **Crear un nuevo producto:**  
-   - **POST** `/products` (Solo administrador).  
-5. **Actualizar un producto:**  
-   - **PUT** `/products/:id` (Solo administrador).  
-6. **Eliminar un producto:**  
-   - **DELETE** `/products/:id` (Solo administrador).  
+4. **Create a new product:**  
+   - **POST** `/products` (Admin only).  
+5. **Update a product:**  
+   - **PUT** `/products/:id` (Admin only).  
+6. **Delete a product:**  
+   - **DELETE** `/products/:id` (Admin only).  
 
-#### **Usuarios**
-1. **Registrar un nuevo usuario:**  
+---
+
+### **Users**
+1. **Register a new user:**  
    - **POST** `/users/register`  
-2. **Consultar detalles de la cuenta del usuario:**  
+2. **View user profile:**  
    - **GET** `/users/me`  
-3. **Actualizar detalles de la cuenta del usuario:**  
+3. **Update user profile:**  
    - **PUT** `/users/me`  
-4. **Eliminar cuenta del usuario:**  
+4. **Delete user profile:**  
    - **DELETE** `/users/me`  
-5. **Listar todos los usuarios:**  
-   - **GET** `/users` (Solo administrador).  
-6. **Consultar detalles de un usuario específico:**  
-   - **GET** `/users/:id` (Solo administrador).  
+5. **List all users:**  
+   - **GET** `/users` (Admin only).  
+6. **View a specific user:**  
+   - **GET** `/users/:id` (Admin only).  
 
 ---
 
-### **Endpoints de Búsqueda con Filtros**
+## **Search Endpoints with Filters**
 
-1. **Listar todo (tiendas, sucursales y productos):**  
+1. **List all (stores, branches, products):**  
    - **GET** `/search?type=<type>&query=<query>`  
-     Este endpoint permite filtrar por tipo (`stores`, `branches`, `products`) y un criterio de búsqueda (`query`).
+     This endpoint filters by type (`stores`, `branches`, `products`) and search criteria (`query`).
 
-   **Ejemplo de uso:**
-   - `/search?type=stores&query=H&M`: Devuelve todas las tiendas con el nombre "H&M".  
-   - `/search?type=branches&query=Blvd.`: Devuelve sucursales que incluyan "Blvd." en su dirección.  
-   - `/search?type=products&query=camisa`: Devuelve productos que incluyan "camisa" en su nombre.  
+   **Examples:**
+   - `/search?type=stores&query=H&M`: Returns all stores named "H&M".  
+   - `/search?type=branches&query=Blvd.`: Returns branches with "Blvd." in their address.  
+   - `/search?type=products&query=shirt`: Returns products containing "shirt" in their name.  
 
-2. **Consultar detalles del resultado seleccionado:**  
+2. **View search result details:**  
    - **GET** `/search/:id`  
-     Devuelve el detalle del elemento seleccionado (ya sea tienda, sucursal o producto).  
+     Returns the details of the selected item (store, branch, or product).  
 
 ---
 
-### **Conexión entre los Filtros y Detalles**
+## **Filters and Details Connection**
 
-Cuando un usuario realiza una consulta utilizando el endpoint de búsqueda general (`/search`), las tarjetas (cards) mostradas estarán relacionadas con los resultados filtrados. Las tarjetas actuarán como enlaces a los detalles correspondientes, dependiendo del tipo de resultado.
+1. **Redirect logic:**
+   - If it’s a **store**:  
+     Redirects to `/stores/:id` to view store details and related branches and products.
+   - If it’s a **branch**:  
+     Redirects to `/branches/:id` to view location, services, and schedule.
+   - If it’s a **product**:  
+     Redirects to `/products/:id` to view description, price, and associated store.
 
-- **Redirección según el tipo de resultado:**
-  - **Si es una tienda:**  
-    - Redirige al endpoint `/stores/:id` donde se muestran los detalles de la tienda, su catálogo y sucursales.
-  - **Si es una sucursal:**  
-    - Redirige al endpoint `/branches/:id` para ver detalles de ubicación, servicios y horario.
-  - **Si es un producto:**  
-    - Redirige al endpoint `/products/:id` donde se muestra su descripción, precio y detalles de la tienda asociada.
+2. **Interactive Cards:**
+   - Each card in the search results links to the corresponding detailed endpoint.
 
-- **Interacción con las tarjetas:**
-  - Cada tarjeta incluye un botón o evento táctil que realiza la redirección automáticamente.
-  - Los detalles mostrados dependen del tipo de entidad seleccionada.
-
-- **Ejemplo Práctico de Flujo:**
-  - **Caso 1:**  
-    - Un usuario busca "H&M" y selecciona una tarjeta de tienda.
-    - Es redirigido a `/stores/:id` donde puede ver el catálogo y sucursales.
-  - **Caso 2:**  
-    - Un usuario busca "Blvd." y selecciona una tarjeta de sucursal.
-    - Es redirigido a `/branches/:id` para consultar la ubicación exacta.
-  - **Caso 3:**  
-    - Un usuario busca "camisa" y selecciona una tarjeta de producto.
-    - Es redirigido a `/products/:id` para consultar la descripción y el precio.
+3. **Flow Example:**
+   - User searches for "Zara" → Selects a store card → Redirected to `/stores/:id` → Views the product catalog and branches.  
 
 ---
 
-### **Pantallas de Flutter por Entidad**
+## **Flutter Screens per Entity**
 
-#### **Categorías**
-1. **Pantalla de Listado de Categorías:**  
-   - Cards que muestran ícono, nombre y descripción.  
-   - **Botones:** Crear, editar o eliminar categorías (solo administradores).
+### **Categories**
+1. **Category Listing Screen:**  
+   - Displays cards with icons, names, and descriptions.  
+   - Admin-only buttons for Create, Edit, Delete.
 
-2. **Pantalla de Formulario de Categoría:**  -Solo administrador.-
-   - Para crear y editar categorías.  
-   - **Campos:** Nombre, descripción e imagen.  
-
----
-
-#### **Tiendas**
-1. **Pantalla de Listado de Tiendas:**  
-   - Cards con nombre, categoría y dirección. Pueden incluir datos calculados a estilo dashboard como número de sucursales.
-   - **Botones:** Crear, editar o eliminar tiendas (solo administradores).  
-
-2. **Pantalla de Detalle de Tienda:**  
-   - Muestra información detallada de la tienda.  
-   - Incluye botones para acceder al catálogo de productos y sucursales.
-
-3. **Pantalla de Formulario de Tienda:**  -Solo administrador.-
-   - Para crear y editar tiendas.  
-   - **Campos:** Nombre, categoría, dirección principal, teléfono, imagen y sitio web.  
+2. **Category Form Screen:**  
+   - Admin-only screen to create/edit categories.  
+   - Fields: Name, Description, Image.  
 
 ---
 
-#### **Sucursales**
-1. **Pantalla de Listado de Sucursales:**  
-   - Cards con nombre, dirección y estado.  
-   - **Botones:** Crear, editar o eliminar sucursales (solo administradores).  
+### **Stores**
+1. **Store Listing Screen:**  
+   - Displays cards with store names, categories, and addresses.  
+   - Admin-only buttons for Create, Edit, Delete.  
 
-2. **Pantalla de Detalle de Sucursal:**  
-   - Muestra detalles de ubicación, servicios y horarios.  
-   - Incluye mapa interactivo con su localización.  
+2. **Store Detail Screen:**  
+   - Displays detailed information about the store.  
+   - Includes buttons to view products and branches.
 
-3. **Pantalla de Formulario de Sucursal:**  -Solo administrador.-
-   - Para crear y editar sucursales.  
-   - **Campos:** Nombre, dirección, latitud, longitud, servicios e imagen.  
-
----
-
-#### **Productos**
-1. **Pantalla de Listado de Productos:**  
-   - Cards con nombre, precio y descripción.  
-   - **Botones:** Crear, editar o eliminar productos (solo administradores).  
-
-2. **Pantalla de Detalle de Producto:**  
-   - Detalles del producto seleccionado, como descripción, precio y tienda asociada.  
-
-3. **Pantalla de Formulario de Producto:**  -Solo administrador.-
-   - Para crear y editar productos.  
-   - **Campos:** Nombre, precio, descripción, imagen y tienda asociada.  
+3. **Store Form Screen:**  
+   - Admin-only screen to create/edit stores.  
+   - Fields: Name, Category, Address, Phone, Image, Website.  
 
 ---
 
-#### **Usuarios**
-1. **Pantalla de Registro:**  
-   - Formulario para crear una cuenta nueva con email, contraseña y nombre.  
+### **Branches**
+1. **Branch Listing Screen:**  
+   - Displays cards with branch names and addresses.  
+   - Admin-only buttons for Create, Edit, Delete.  
 
-2. **Pantalla de Perfil:**  
-   - Datos del usuario con opción para editar o eliminar cuenta.  
+2. **Branch Detail Screen:**  
+   - Displays branch location, services, and schedule.  
+   - Includes an interactive map.
 
----
-
-### **Flujo de Interacción con Pantallas**
-
-1. **Categoría seleccionada:**  
-   - Usuario selecciona una categoría de la pantalla de listado, lo que lo lleva a las tiendas relacionadas.  
-
-2. **Tienda seleccionada:**  
-   - Usuario selecciona una tienda y accede al detalle de la tienda, donde puede elegir entre catálogo de productos o sucursales.
-
-3. **Producto o sucursal seleccionada:**  
-   - Usuario selecciona un producto o una sucursal y accede al detalle correspondiente (descripción del producto o ubicación de la sucursal).
+3. **Branch Form Screen:**  
+   - Admin-only screen to create/edit branches.  
+   - Fields: Name, Address, Latitude, Longitude, Services, Image.  
 
 ---
 
-### **Desambiguación de requisitos funcionales**
+### **Products**
+1. **Product Listing Screen:**  
+   - Displays cards with product names, prices, and descriptions.  
+   - Admin-only buttons for Create, Edit, Delete.  
 
-1. Consultar y listar todas las categorías.  
-2. Ver detalles de una categoría, incluyendo sus tiendas asociadas.  
-3. Crear, editar y eliminar categorías (solo administradores).  
-4. Consultar y listar todas las tiendas.  
-5. Filtrar tiendas por categoría seleccionada.  
-6. Ver detalles de una tienda, incluyendo descripción, catálogo y sucursales.  
-7. Crear, editar y eliminar tiendas (solo administradores).  
-8. Consultar y listar todas las sucursales.  
-9. Ver detalles de una sucursal, incluyendo ubicación, servicios y horarios.  
-10. Crear, editar y eliminar sucursales (solo administradores).  
-11. Consultar y listar todos los productos.  
-12. Filtrar productos por tienda seleccionada.  
-13. Ver detalles de un producto, como nombre, precio y descripción.  
-14. Crear, editar y eliminar productos (solo administradores).  
-15. Registrar, editar y eliminar perfiles de usuario (clientes sobre su propio perfil).  
-16. Consultar, listar y eliminar usuarios (solo administradores).  
-17. Realizar búsquedas generales con filtros por tiendas, sucursales o productos.  
-18. Redirigir tarjetas de búsqueda a los detalles de la entidad seleccionada.  
-19. Navegar de categorías a tiendas, sucursales y productos de forma jerárquica.  
-20. Mostrar ubicaciones de sucursales en un mapa interactivo.  
-21. Diseñar pantallas **(mínimo 4)** intuitivas para cada entidad y función del sistema.
+2. **Product Detail Screen:**  
+   - Displays product details, such as description, price, and store.  
+
+3. **Product Form Screen:**  
+   - Admin-only screen to create/edit products.  
+   - Fields: Name, Price, Description, Image, Store Association.  
 
 ---
 
-### **Resumen**
+### **Users**
+1. **User Registration Screen:**  
+   - Form for creating a new user account.  
 
-La aplicación funciona como un directorio de tiendas de ropa organizado por categorías de estilo. Los usuarios pueden explorar todas las tiendas locales que ofrecen un estilo específico. Al seleccionar una tienda, se muestra información detallada sobre la misma, incluyendo su ubicación geográfica, catálogo de productos y un botón para ver las sucursales disponibles. Por ejemplo, si el usuario selecciona la categoría "Old Money", podrá ver tiendas como Zara, Bershka y H&M. Al presionar Zara, se despliega su catálogo y un acceso a la lista de sucursales. Al seleccionar una sucursal, se muestran detalles específicos como su ubicación exacta.
+2. **User Profile Screen:**  
+   - Displays user data with options to edit or delete the account.  
+
+---
+
+## **Screen Interaction Flow**
+
+1. **Category selection:**  
+   - User selects a category → Navigates to related stores.  
+
+2. **Store selection:**  
+   - User selects a store → Navigates to store details → Views product catalog or branches.  
+
+3. **Branch or Product selection:**  
+   - User selects a branch or product → Navigates to corresponding details.  
+
+---
+
+## **Functional Requirements Clarification**
+
+1. View and list all categories.  
+2. View category details, including related stores.  
+3. Create, edit, and delete categories (Admin only).  
+4. View and list all stores.  
+5. Filter stores by category.  
+6. View store details, including catalog and branches.  
+7. Create, edit, and delete stores (Admin only).  
+8. View and list all branches.  
+9. View branch details, including location, services, and schedules.  
+10. Create, edit, and delete branches (Admin only).  
+11. View and list all products.  
+12. Filter products by store.  
+13. View product details, including name, price, and description.  
+14. Create, edit, and delete products (Admin only).  
+15. Register, edit, and delete user profiles (clients only for their own profile).  
+16. List and delete users (Admin only).  
+17. Conduct general searches with filters for stores, branches, or products.  
+18. Redirect search results to detailed entity views.  
+19. Navigate from categories to stores, branches, and products hierarchically.  
+20. Display branch locations on an interactive map.  
+21. Design **at least 4** intuitive screens for each entity and function.  
+
+---
+
+## **Summary**
+
+The application acts as a directory of clothing stores organized by style categories. Users can explore all local stores offering a specific style. Upon selecting a store, detailed information, including geographic location, product catalog, and available branches, is displayed. For example, selecting the "Formal Wear" category might list stores like Zara, H&M, and Calvin Klein. Clicking Zara reveals its catalog and branches, with branch selection providing specific location details.
 
 ---
