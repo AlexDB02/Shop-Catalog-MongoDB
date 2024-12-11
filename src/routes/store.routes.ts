@@ -1,6 +1,5 @@
 import {Router} from "express";
 import * as storeController from "../controllers/store.controller";
-import {authMiddleware} from "../middleware/auth.middleware";
 import {asyncHandler} from "../utils/asyncHandler";
 
 const storeRouter = Router();

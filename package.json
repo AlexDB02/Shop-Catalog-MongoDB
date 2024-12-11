@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon src/server.ts",
-    "build": "tsc"
+    "dev": "nodemon src/app.ts",
+    "start": "node dist/app.js",
+    "build": "rimraf ./dist && tsc"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,7 @@
     "@types/node": "^22.10.0",
     "@types/nodemailer": "^6.4.17",
     "nodemon": "^3.1.7",
+    "rimraf": "^6.0.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }

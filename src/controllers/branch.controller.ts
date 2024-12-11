@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 import Branch from "../models/branch.model";
 import Store from "../models/store.model";
-import { AuthenticatedRequest } from "../middleware/auth.middleware";
 
 export const getBranches = async (req: Request, res: Response) => {
     const { store } = req.query as { store: string };
@@ -34,9 +33,7 @@ export const getBranch = async (req: Request, res: Response) => {
     }
 };
 
-export const createBranch = async (req: AuthenticatedRequest, res: Response) => {
-
-    
+export const createBranch = async (req: Request, res: Response) => {
     const body = validateBody(req, res);
     if (!body) return;
 
@@ -68,8 +65,7 @@ export const createBranch = async (req: AuthenticatedRequest, res: Response) => 
     }
 };
 
-export const updateBranch = async (req: AuthenticatedRequest, res: Response) => {
-    
+export const updateBranch = async (req: Request, res: Response) => {
     try {
         const branch = await Branch.findById(req.params.id);
         if (!branch) {
@@ -99,9 +95,7 @@ export const updateBranch = async (req: AuthenticatedRequest, res: Response) => 
     }
 };
 
-export const deleteBranch = async (req: AuthenticatedRequest, res: Response) => {
-
-
+export const deleteBranch = async (req: Request, res: Response) => {
     try {
         const branch = await Branch.findById(req.params.id);
         if (!branch) {

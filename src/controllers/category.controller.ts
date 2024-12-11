@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import CategoryModel from "../models/category.model";
-import { AuthenticatedRequest } from "../middleware/auth.middleware"; 
 
 export const getCategories = async (req: Request, res: Response) => {
   try {
@@ -24,9 +23,7 @@ export const getCategory = async (req: Request, res: Response) => {
   }
 };
 
-export const createCategory = async (req: AuthenticatedRequest, res: Response) => {
-
-
+export const createCategory = async (req: Request, res: Response) => {
   const { name, description, image } = req.body;
   if (!name || !description) {
     return res.status(400).json({ message: "Faltan campos por rellenar" });
@@ -42,7 +39,7 @@ export const createCategory = async (req: AuthenticatedRequest, res: Response) =
 };
 
 // Update an existing category
-export const updateCategory = async (req: AuthenticatedRequest, res: Response) => {
+export const updateCategory = async (req: Request, res: Response) => {
 
 
   const { name, description, image } = req.body;
@@ -68,7 +65,7 @@ export const updateCategory = async (req: AuthenticatedRequest, res: Response) =
 };
 
 // Delete a category
-export const deleteCategory = async (req: AuthenticatedRequest, res: Response) => {
+export const deleteCategory = async (req: Request, res: Response) => {
     const role = req.body.user?.role;
     if (role !== "admin") {
       return res.status(403).json({ message: "No tienes permiso para realizar esta acción" });

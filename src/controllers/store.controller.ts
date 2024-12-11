@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import StoreModel from "../models/store.model";
-import { AuthenticatedRequest } from "../middleware/auth.middleware"; 
 
 export const getStores = async (req: Request, res: Response) => {
     const { categories } = req.query as { categories: string[] };
@@ -31,9 +30,7 @@ export const getStore = async (req: Request, res: Response) => {
     }
 };
 
-export const createStore = async (req: AuthenticatedRequest, res: Response) => {
-
-    
+export const createStore = async (req: Request, res: Response) => {
     const body = validateBody(req, res);
     if (!body) return;
 
@@ -56,9 +53,7 @@ export const createStore = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-export const updateStore = async (req: AuthenticatedRequest, res: Response) => {
-
-
+export const updateStore = async (req: Request, res: Response) => {
     const storeId = req.params.id;
     const body = validateBody(req, res);
     if (!body) return;
@@ -78,9 +73,7 @@ export const updateStore = async (req: AuthenticatedRequest, res: Response) => {
     }
 };
 
-export const deleteStore = async (req: AuthenticatedRequest, res: Response) => {
-
-
+export const deleteStore = async (req: Request, res: Response) => {
     try {
         const store = await StoreModel.findByIdAndDelete(req.params.id);
         if (store) {

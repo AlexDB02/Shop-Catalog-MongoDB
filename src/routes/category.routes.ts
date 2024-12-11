@@ -1,6 +1,5 @@
 import {Router} from "express";
 import * as categoryController from "../controllers/category.controller";
-import {authMiddleware} from "../middleware/auth.middleware";
 import {asyncHandler} from "../utils/asyncHandler";
 
 const categoryRouter = Router();
