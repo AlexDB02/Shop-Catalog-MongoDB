@@ -1,0 +1,29 @@
+name: Docker Build & Publish
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone code
+        uses: actions/checkout@v3
+      
+      - name: Login to Docker Hub  
+        run: echo "${{ secrets.DOCKER_PAT }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build Docker Image
+        run: docker build -t rayzler/shop-catalog-api:${{ github.sha }} .
+
+      - name: Tag Latest
+        run: docker tag rayzler/shop-catalog-api:${{ github.sha }} rayzler/shop-catalog-api:latest
+
+      - name: Push Docker Image
+        run: |
+          docker push rayzler/shop-catalog-api:${{ github.sha }}
+          docker push rayzler/shop-catalog-api:latest
+
+
