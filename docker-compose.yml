@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  shop-catalog-api:
+    image: rayzler/shop-catalog-api:latest
+    container_name: shop-catalog-api
+    environment:
+        - PORT=${PORT}
+        - MONGODB_URI=${MONGODB_URI}
+        - EMAIL_SERVICE=${EMAIL_SERVICE}
+        - EMAIL_USER=${EMAIL_USER}
+        - EMAIL_PASS=${EMAIL_PASS}
+    ports:
+      - "3000:3000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    container_name: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_volume:/data/db
+
+volumes:
+  mongodb_volume:
