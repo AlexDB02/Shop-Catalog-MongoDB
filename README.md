@@ -252,10 +252,13 @@ package.json
 
 ## **General Endpoints for Postman**
 
+### **Base route**
+http://fashionfinder.ddns.net:3000/api/
+
 ### **Categories**
 1. **List all categories:**  
    - **GET** `/categories`  
-2. **View a specific category:**  
+2. **View a specific category:**  TO-DO. Available in filter feature.
    - **GET** `/categories/:id`  
 3. **Create a new category:**  
    - **POST** `/categories` (Admin only).  
@@ -285,7 +288,7 @@ package.json
 ### **Branches**
 1. **List all branches:**  
    - **GET** `/branches`  
-2. **List branches of a specific store:**  
+2. **List branches of a specific store:**  TO-DO. Available in filter feature.
    - **GET** `/stores/:id/branches`  
 3. **View branch details:**  
    - **GET** `/branches/:id`  
@@ -301,7 +304,7 @@ package.json
 ### **Products**
 1. **List all products:**  
    - **GET** `/products`  
-2. **List products by store:**  
+2. **List products by store:**  TO-DO. Available in filter feature.
    - **GET** `/stores/:id/products`  
 3. **View product details:**  
    - **GET** `/products/:id`  
