@@ -258,7 +258,7 @@ http://fashionfinder.ddns.net:3000/api/
 ### **Categories**
 1. **List all categories:**  
    - **GET** `/categories`  
-2. **View a specific category:**  TO-DO. Available in filter feature.
+2. **View a specific category:**  
    - **GET** `/categories/:id`  
 3. **Create a new category:**  
    - **POST** `/categories` (Admin only).  
@@ -272,7 +272,7 @@ http://fashionfinder.ddns.net:3000/api/
 ### **Stores**
 1. **List all stores:**  
    - **GET** `/stores`  
-2. **List stores by category:**  
+2. **List stores by category:** TO-DO. Available in filter/search feature.
    - **GET** `/categories/:id/stores`  
 3. **View store details:**  
    - **GET** `/stores/:id`  
@@ -288,7 +288,7 @@ http://fashionfinder.ddns.net:3000/api/
 ### **Branches**
 1. **List all branches:**  
    - **GET** `/branches`  
-2. **List branches of a specific store:**  TO-DO. Available in filter feature.
+2. **List branches of a specific store:**  TO-DO. Available in filter/search feature.
    - **GET** `/stores/:id/branches`  
 3. **View branch details:**  
    - **GET** `/branches/:id`  
@@ -304,7 +304,7 @@ http://fashionfinder.ddns.net:3000/api/
 ### **Products**
 1. **List all products:**  
    - **GET** `/products`  
-2. **List products by store:**  TO-DO. Available in filter feature.
+2. **List products by store:**  TO-DO. Available in filter/search feature.
    - **GET** `/stores/:id/products`  
 3. **View product details:**  
    - **GET** `/products/:id`  
